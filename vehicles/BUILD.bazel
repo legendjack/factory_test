@@ -1,0 +1,42 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+  name = "vehicles_base",
+  srcs = ["vehicles_base.cpp"],
+  hdrs = ["vehicles_base.h"],
+    deps = [
+    "//:log",
+  ],
+)
+
+cc_library(
+  name = "bicycle",
+  srcs = ["bicycle.cpp"],
+  hdrs = ["bicycle.h"],
+	deps = [
+		":vehicles_base",
+  ],
+  alwayslink = 1,
+)
+
+cc_library(
+  name = "motorcycle",
+  srcs = ["motorcycle.cpp"],
+  hdrs = ["motorcycle.h"],
+	deps = [
+		":vehicles_base",
+  ],
+  alwayslink = 1,
+)
+
+cc_library(
+  name = "car",
+  srcs = ["car.cpp"],
+  hdrs = ["car.h"],
+	deps = [
+		":vehicles_base",
+  ],
+  alwayslink = 1,
+)
